@@ -13,15 +13,11 @@ if __name__ == '__main__':
 
     text = response.text
 
-    pattern = r'<div\s+class="x-product-card-description__product-name">(.*?)</div>'
-
-    titles = re.findall(pattern, text)
-    for title in titles:
-        print(title)
-
-    price_pattern = r'<div\s+class="x-product-card-description__product-name"[^"]*">([^<]+)</div>'
+    name_pattern = r'<div\s+class="x-product-card-description__product-name">(.*?)</div>'
+    price_pattern = r'<div\s+class="x-product-card-description__x-product-card__card">(.*?)</div>'
     brand_pattern = r'<div\s+class="x-product-card-description__brand-name">([^<]+)</div>'
 
+    names = re.findall(name_pattern, text)
     prices = re.findall(price_pattern, text)
     brands = re.findall(brand_pattern, text)
 
@@ -31,6 +27,6 @@ if __name__ == '__main__':
     for price in prices:
         print(f'Бренд: {price}')
 
-    for price, brand in zip(prices, brands):
-        print(f'Цена: {price}, Бренд: {brand}')
+    for name, brand in zip(names, brands):
+        print(f'Наименование:{name}, Бренд: {brand}')
 
