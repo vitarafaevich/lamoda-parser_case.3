@@ -2,14 +2,27 @@
 Котлярова Полина
 Рафаевич Вита
 """
-import requests
-url = 'https://www.lamoda.ru/catalogsearch/result/?q=%D0%BA%D1%83%D1%80%D1%82%D0%BA%D0%B0%20%D0%B7%D0%B8%D0%BC%D0%BD%D1%8F%D1%8F%20%D0%B6%D0%B5%D0%BD%D1%81%D0%BA%D0%B0%D1%8F&&submit=y&page=1'
-r = requests.get(url)
-text = r.text
 
-a = input()
-params = {'q' : a}
-response = requests.get('https://www.lamoda.ru/catalogsearch/result', params=params)
-text = response.text
-print(text)
+import requests
+import re
+
+if __name__ == '__main__':
+    a = input()
+    params = {'q' : a}
+    response = requests.get('https://www.lamoda.ru/catalogsearch/result', params=params)
+
+    text = response.text
+
+    price_pattern = r'<div\s+class="x-product-card-description__price[^"]*">([^<]+)</div>'
+    brand_pattern = r'<div\s+class="x-product-card-description__brand-name">([^<]+)</div>'
+
+    prices = re.findall(price_pattern, text)
+    brands = re.findall(brand_pattern, text)
+
+
+    for brand in brands:
+        print(f'Бренд: {brand}')
+
+    for price, brand in zip(prices, brands):
+        print(f'Цена: {price}, Бренд: {brand}')
 
