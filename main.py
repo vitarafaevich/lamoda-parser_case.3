@@ -24,5 +24,5 @@ if __name__ == '__main__':
     brands = re.findall(brand_pattern, text)
 
     for article, name, brand in zip(articles, names, brands):
-        print(f'Артикул: {article}, Наименование:{name}, Бренд: {brand}')
+        print(f'Number: {article}, Name:{name}, Brand: {brand}')
 
