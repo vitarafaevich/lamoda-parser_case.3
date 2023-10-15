@@ -14,17 +14,15 @@ if __name__ == '__main__':
     text = response.text
 
     name_pattern = r'<div\s+class="x-product-card-description__product-name">(.*?)</div>'
-    #price_pattern = r'<div\s+class="x-product-card-description__x-product-card__card">(.*?)</div>'
+    price_pattern = r'span>\s+class="x-product-card-description__price-old[^"₽]*">([^<]+)</span>'
     brand_pattern = r'<div\s+class="x-product-card-description__brand-name">([^<]+)</div>'
+    article_pattern = r'"short_sku":"([A-Za-z0-9]+)"'
 
+    articles = re.findall(article_pattern, text)
     names = re.findall(name_pattern, text)
-    #prices = re.findall(price_pattern, text)
+    prices = re.findall(price_pattern, text)
     brands = re.findall(brand_pattern, text)
 
-
-    for brand in brands:
-        print(f'Бренд: {brand}')
-
-    for name, brand in zip(names, brands):
-        print(f'Наименование:{name}, Бренд: {brand}')
+    for article, name, brand in zip(articles, names, brands):
+        print(f'Артикул: {article}, Наименование:{name}, Бренд: {brand}')
 
