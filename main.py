@@ -5,6 +5,7 @@
 
 import requests
 import re
+import pandas as pd
 
 if __name__ == '__main__':
     goods = input()
@@ -58,7 +59,13 @@ if __name__ == '__main__':
 
         names = re.findall(name_pattern, text)
         brands = re.findall(brand_pattern, text)
-with open('output.txt', 'w', encoding='utf-8') as f_out:
-        for article, name, brand, price, discount, country in zip(articles, names, brands, prices, discounts, countries):
-            print(f'Number: {article}, Name: {name}, Brand: {brand}, Price: {price}, Discount: {discount}, 'f'Production Country: {country}', file = f_out)
 
+        df = pd.DataFrame({'Articles': articles, 'Name': names, 'Brand': brands, 'Price': prices,
+                           'Discount': discounts, 'Country': countries})
+        pd.options.display.max_columns = 7
+        pd.options.display.max_rows = len(articles)
+        srtd = df.sort_values(by=['Price'])
+        print(srtd)
+
+        with open('output.txt', 'w', encoding='utf-8') as f_out:
+            f_out.write(str(srtd))

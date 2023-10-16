@@ -1,3 +1,9 @@
-Number: MP002XU0CVKN, Name:  Подсвечник для тонких свечей Essential, Brand: Tkano, Price: 1 490 ₽, Discount: 19%, Production Country: Китай
-Number: MP002XU00018, Name:  Подсвечник Infinity, Brand: Moroshka, Price: 1 635 ₽, Discount: 0%, Production Country: Россия
-Number: MP002XU03XK2, Name:  Подсвечник Irony, Brand: Moroshka, Price: 1 095 ₽, Discount: 8%, Production Country: Испания
+       Articles                                               Name  \
+0  MP002XU05E3O   Чайник заварочный 1 л 25,2х14х16 см &quot;Кан...   
+2  MP002XU05E48   Чайник заварочный 1 л 25,2х14х16 см &quot;Кан...   
+1  MP002XU0CT0K           Чайник заварочный Beautiful patterns 1 л   
+
+          Brand    Price Discount Country  
+0  Elan Gallery  1 088 ₽      79%   Китай  
+2  Elan Gallery  1 188 ₽      78%   Китай  
+1     Myatashop  1 720 ₽       0%   Китай  
