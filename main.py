@@ -42,7 +42,7 @@ if __name__ == '__main__':
 
             price_pattern = r'"price":"(.*?)"'
             pricess = re.findall(price_pattern, product)
-            prices.append(pricess[0])
+            prices.append(f'{pricess[0]} ₽')
 
             pricess = str(pricess).replace(' ', '')
             pricess = pricess.split(',')
