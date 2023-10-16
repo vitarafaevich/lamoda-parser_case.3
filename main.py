@@ -52,9 +52,9 @@ if __name__ == '__main__':
                 pricess[0] = pricess[0].strip("[']")
                 pricess[1] = pricess[1].strip("[']")
                 discount = int(((int(pricess[1]) - int(pricess[0])) / int(pricess[1])) * 100)
-                discounts.append(f'{discount}%')
+                discounts.append(f'{discount} %')
             else:
-                discount = '0%'
+                discount = '0 %'
                 discounts.append(discount)
 
         names = re.findall(name_pattern, text)
