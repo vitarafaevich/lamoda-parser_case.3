@@ -58,7 +58,7 @@ if __name__ == '__main__':
 
         names = re.findall(name_pattern, text)
         brands = re.findall(brand_pattern, text)
-
+with open('output.txt', 'w', encoding='utf-8') as f_out:
         for article, name, brand, price, discount, country in zip(articles, names, brands, prices, discounts, countries):
-            print(f'Number: {article}, Name: {name}, Brand: {brand}, Price: {price}, Discount: {discount}, 'f'Production Country: {country}')
+            print(f'Number: {article}, Name: {name}, Brand: {brand}, Price: {price}, Discount: {discount}, 'f'Production Country: {country}', file = f_out)
 
